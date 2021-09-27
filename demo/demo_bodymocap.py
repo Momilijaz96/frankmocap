@@ -117,15 +117,15 @@ def run_body_mocap(args, body_bbox_detector, body_mocap, visualizer):
         pred_mesh_list = demo_utils.extract_mesh_from_output(pred_output_list)
 
         # visualization
-        res_img = visualizer.visualize(
-            img_original_bgr,
-            pred_mesh_list = pred_mesh_list, 
-            body_bbox_list = body_bbox_list)
+        #res_img = visualizer.visualize(
+        #    img_original_bgr,
+        #    pred_mesh_list = pred_mesh_list, 
+        #    body_bbox_list = body_bbox_list)
         
         # show result in the screen
-        if not args.no_display:
-            res_img = res_img.astype(np.uint8)
-            ImShow(res_img)
+        #if not args.no_display:
+        #    res_img = res_img.astype(np.uint8)
+        #    ImShow(res_img)
 
         # save result image
         if args.out_dir is not None:
