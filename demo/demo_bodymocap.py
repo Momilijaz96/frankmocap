@@ -117,15 +117,15 @@ def run_body_mocap(args, body_bbox_detector, body_mocap, visualizer):
         pred_mesh_list = demo_utils.extract_mesh_from_output(pred_output_list)
 
         # visualization
-        #res_img = visualizer.visualize(
-        #    img_original_bgr,
-        #    pred_mesh_list = pred_mesh_list, 
-        #    body_bbox_list = body_bbox_list)
+        res_img = visualizer.visualize(
+            img_original_bgr,
+            pred_mesh_list = pred_mesh_list, 
+            body_bbox_list = body_bbox_list)
         
         # show result in the screen
-        #if not args.no_display:
-        #    res_img = res_img.astype(np.uint8)
-        #    ImShow(res_img)
+        if not args.no_display:
+            res_img = res_img.astype(np.uint8)
+            ImShow(res_img)
 
         # save result image
         if args.out_dir is not None:
@@ -165,13 +165,13 @@ def main():
     body_mocap = BodyMocap(checkpoint_path, args.smpl_dir, device, use_smplx)
 
     # Set Visualizer
-    #if args.renderer_type in ['pytorch3d', 'opendr']:
-    #    from renderer.screen_free_visualizer import Visualizer
+    if args.renderer_type in ['pytorch3d', 'opendr']:
+        from renderer.screen_free_visualizer import Visualizer
     #else:
     #    from renderer.visualizer import Visualizer
     #visualizer = Visualizer(args.renderer_type)
   
-    run_body_mocap(args, body_bbox_detector, body_mocap, None)
+    run_body_mocap(args, body_bbox_detector, body_mocap, Visualizer)
 
 
 if __name__ == '__main__':
