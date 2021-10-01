@@ -165,13 +165,13 @@ def main():
     body_mocap = BodyMocap(checkpoint_path, args.smpl_dir, device, use_smplx)
 
     # Set Visualizer
-    if args.renderer_type in ['pytorch3d', 'opendr']:
-        from renderer.screen_free_visualizer import Visualizer
-    else:
-        from renderer.visualizer import Visualizer
-    visualizer = Visualizer(args.renderer_type)
+    #if args.renderer_type in ['pytorch3d', 'opendr']:
+    #    from renderer.screen_free_visualizer import Visualizer
+    #else:
+    #    from renderer.visualizer import Visualizer
+    #visualizer = Visualizer(args.renderer_type)
   
-    run_body_mocap(args, body_bbox_detector, body_mocap, visualizer)
+    run_body_mocap(args, body_bbox_detector, body_mocap, None)
 
 
 if __name__ == '__main__':
